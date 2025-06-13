@@ -1,0 +1,88 @@
+🛠️ Sidebar Controls
+Category Dropdown
+
+Clarity: “All” is OK, but explicitly listing “Web3” and “Web3 Gaming” (with counts) helps users understand what they’re picking.
+
+Multi-select: Allow picking both or either; some users may want to compare just Gaming vs. general.
+
+Refresh & Auto-refresh
+
+Feedback: When you hit “Refresh,” show a spinner overlay on the charts themselves (rather than a ticker on the side) so it’s clear which visuals are loading.
+
+Interval Control: Instead of a fixed 30 s checkbox, offer a small slider or dropdown (15 s / 30 s / 60 s / manual).
+
+Search Projects
+
+Fuzzy Matching: Support partial matches & typo tolerance (“Aave” vs “Ave”).
+
+Instant Filtering: Trigger on key-up rather than requiring Enter.
+
+📈 Market Overview Tab
+1. Market Cap vs 24 h Volume (Bubble Chart)
+Log–Log Axes: You’re plotting across orders of magnitude — explicitly label both axes “Log 10 Scale” or show tick labels (10k, 100k, 1 M, 10 M, etc.) in scientific notation.
+
+Bubble Size Encoding: It’s unclear what the bubble size represents (Price? Circulating Supply?). Add a size legend.
+
+Tooltip: On hover, show full stats (name, exact market cap, volume, category, revenue/user).
+
+Zoom & Pan: Enable streamlit’s Plotly renderer or allow brushing so users can zoom into large clusters.
+
+2. Projects by Category (Pie Chart)
+Redundancy: A simple donut won’t tell you much beyond “52/48 split.” Consider a stacked bar or small multiple if you ever add more categories.
+
+Absolute Counts: Show counts next to percentages (e.g., “Web3 Gaming: 47.4% (47 projects)”).
+
+💰 Revenue & User Metrics Tab
+1. Revenue per User (Bar Chart)
+Sort Order: You’ve sorted highest→lowest, which is good. But long labels are clipped/rotated awkwardly.
+
+Solution: Rotate labels 45° or wrap them, or show a vertical scroll within the chart container.
+
+Color Encoding: All bars are one shade of blue; use two distinct palette tones for Web3 vs. Gaming so they stand out.
+
+2. Market Cap/DAU Ratio (Scatter)
+Axis Choice: X-axis is 24 h Volume — why not also log-scale it? This will compress the extreme outliers and let mid-tier projects show.
+
+Bubble Size: Again, clarify bubble size meaning or remove it if it doesn’t add new information.
+
+Reference Lines: Add a horizontal line at ratio = 1 to show “market cap equals daily active user worth $1.”
+
+3. Token Burn Rate (Bar Chart)
+Missing Data: Several bars read “N/A.” Rather than excluding them entirely, you could shade them in gray and call out “not disclosed” so users know it’s a data gap, not zero.
+
+Color Gradient: Use a gradient (light→dark) by burn rate to make differences easier to read at a glance.
+
+4. Revenue Metrics Heatmap
+Color Scale: The default Viridis palette makes “0” and “>2 M” too contrasty. Consider a midpoint or diverging scale so mid-range values aren’t lost.
+
+Ordering: Rows should be sorted (e.g., by total revenue/user) so the hottest rows sit at the top.
+
+🚀 Token Analysis Tab
+1. Token Velocity (Bar Chart)
+Scale: Most values are <1; consider switching to a horizontal bar and sorting so top-velocity tokens are crystal clear.
+
+Tooltip for Context: Velocity = volume/market cap is abstract; define it in a hover tooltip (“How many times the token turns over in 24 h”).
+
+2. Price vs Circulating Supply (Scatter)
+Outliers: Those single giant bubbles dwarf everything else. You can either filter out the largest 1–2 points for a “zoomed” sub-view, or use a facet: one plot for small caps, one for large.
+
+3. Supply Utilization Ratio
+Binary Values: Almost all values are 1.0–0.9. Either extend the sample to lower-utilization projects or move this chart into an “Advanced” view so it doesn’t look redundant.
+
+4. Velocity vs Market Cap
+Clutter: Tens of dots in the bottom left overlap. Add a small-jitter or hex-bin overlay so density is visible.
+
+📊 Performance Tab
+Price Performance Heatmap
+Time Axis Ordering: Arrange the time periods logically (1 h → 24 h → 7 d) top-to-bottom.
+
+Annotations: Highlight significant swings in red/green squares with the % change printed inside for the top 3 hottest/coldest tokens.
+
+Project Details Table
+Freeze Pane: Lock the header (and Project Name column) so users can scroll large tables.
+
+Column Alignment: Right-align all numeric columns, center-align text.
+
+Inline Sorting: Allow sorting on any column by clicking its header.
+
+Row Highlight: Hover-over highlight the entire row for readability.

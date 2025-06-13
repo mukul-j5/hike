@@ -1,0 +1,43 @@
+1. Clarity & Layout
+Landing view: Is the purpose of the app immediately obvious? Consider adding a brief header or tagline explaining what the tool does and what the user should do first.
+
+Navigation hierarchy: Present fewer, high-level actions. If you're using sidebar menus, group related controls into clear sections (e.g., “Filters,” “Date Range,” “Metrics”).
+
+⚙️ 2. Controls & Interactions
+Descriptive labels: Buttons and dropdowns should clearly say what they do (e.g., “Show Token Velocity Chart” instead of “Submit”).
+
+Default values: Pre-populate key filters so that users can see meaningful charts on load without configuring anything.
+
+Feedback on change: Interactive controls like sliders or inputs should visually update charts or metrics without delay, and indicate loading states (“Calculating…”).
+
+📉 3. Charts & Data Representation
+Contextual axes and units: Always include axis titles, units, and data ranges. E.g., “Revenue per User (USD).”
+
+Interactivity hints: Allow hovering or clicking on data points for tooltips. For multi-series charts, a legend that toggles on/off improves usability.
+
+Consistency: Keep color palettes and chart styles uniform – e.g., use company brand colors or a web3-inspired palette consistently.
+
+👀 4. Usability & Feedback
+Mobile/responsive support: Will the controls and visuals adapt well to smaller screens?
+
+Error states: If the data source fails or returns no data, show friendly messages: “No data available for selected time period.”
+
+Help text or tooltips: A question-mark icon at top could open a quick user guide or glossary (e.g., “What is token velocity?”).
+
+🚀 5. Performance & Loading
+Initial load time: Keep it fast (<3s). Lazy-load heavy charts.
+
+Caching: If you're using APIs for historical data, cache calls so that revisiting or toggling filters is snappy.
+
+🎨 6. Design & Branding
+Color contrast: Ensure accessibility (WCAG AA) for text and chart elements.
+
+White space: Give metrics room to breathe—avoid visual clutter.
+
+Typography: Use a clear, legible font hierarchy (headers, subheaders, body text). Streamlit’s default works, but check size legibility.
+
+🏗️ 7. Scalability & Extensibility
+Preset views: Offer buttons like “Top 10 Gaming Projects” or “Full Web3 Dashboard” for quick toggles.
+
+Export options: Let users download CSVs or PNGs for data and visual outputs.
+
